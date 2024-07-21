@@ -1,9 +1,12 @@
 doctype html
-doctype html
 html(lang="en")
     head
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Danh sách tours
+        title #{pageTitle}
     body 
-        h1 Trang danh sách tours
+        h1 Trang Danh sách tour
+
+        ul
+          each item in tours
+            li #{item.title}
