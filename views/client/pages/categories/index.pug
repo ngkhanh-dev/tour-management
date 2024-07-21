@@ -1,0 +1,34 @@
+extends ../../layouts/default.pug
+include ../../mixins/box-head.pug
+
+block main
+  .container.my-3
+    .row
+      .col-12
+        +box-head(pageTitle)
+
+    .row
+      .col-6.mb-3
+        div(class="card")
+          img(src="https://backend.daca.vn/assets/tour/images/du-lich-trong-nuoc.jpg")
+          div(class="card-body")
+            h5(class="card-title") Du lịch trong nước
+            a(href="/tours/:slugCategory" class="btn btn-primary") Xem chi tiết
+      .col-6.mb-3
+        div(class="card")
+          img(src="https://backend.daca.vn/assets/tour/images/du-lich-nuoc-ngoai.jpg")
+          div(class="card-body")
+            h5(class="card-title") Du lịch nước ngoài
+            a(href="/tours/:slugCategory" class="btn btn-primary") Xem chi tiết
+      .col-6.mb-3
+        div(class="card")
+          img(src="https://backend.daca.vn/assets/tour/images/tour-mua-he.jpeg")
+          div(class="card-body")
+            h5(class="card-title") Tour mùa hè
+            a(href="/tours/:slugCategory" class="btn btn-primary") Xem chi tiết
+      .col-6.mb-3
+        div(class="card")
+          img(src="https://backend.daca.vn/assets/tour/images/tour-mua-dong.jpg")
+          div(class="card-body")
+            h5(class="card-title") Tour mùa đông
+            a(href="/tours/:slugCategory" class="btn btn-primary") Xem chi tiết
