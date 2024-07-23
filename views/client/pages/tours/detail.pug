@@ -2,6 +2,11 @@ extends ../../layouts/default.pug
 include ../../mixins/box-head.pug
 
 block main
+  div(
+    class="alert alert-success alert-hidden"
+    alert-add-cart-success
+  ) Đã thêm tour vào giỏ hàng! <span close-alert>x</span>
+
   .tour-detail
     .container.my-3
       .row
