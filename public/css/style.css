@@ -160,3 +160,7 @@
     cursor: pointer;
 }
 /* End Alert Add Cart Success */
+
+tbody tr {
+    background-color: #c12026;
+}
