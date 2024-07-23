@@ -1,0 +1,63 @@
+extends ../../layouts/default.pug
+include ../../mixins/box-head.pug
+
+block main
+  .tour-detail
+    .container.my-3
+      .row
+        .col-6
+          .inner-images
+            div(class="swiper sliderMain")
+              div(class="swiper-wrapper")
+                each image in tourDetail.images
+                  div(class="swiper-slide")
+                    .inner-image
+                      img(src=image)
+              div(class="swiper-pagination")
+
+        .col-6
+          .inner-title #{tourDetail.title}
+
+          .inner-barcode
+            <i class="fa-solid fa-barcode"></i> Mã tour: #{tourDetail.code}
+
+          .inner-time-start
+            <i class="fa-solid fa-calendar-days"></i> Lịch khởi hành: #{tourDetail.timeStart}
+
+          .inner-stock
+            <i class="fa-solid fa-person-walking-luggage"></i> Còn lại: #{tourDetail.stock} chỗ
+
+          .inner-price-special #{tourDetail.price_special.toLocaleString()}đ
+          .inner-price #{tourDetail.price.toLocaleString()}đ
+          .inner-percent Giảm tới #{tourDetail.discount}%
+
+          form(
+            form-add-to-cart
+            tour-id=tourDetail.id
+          )
+            input(
+              class="form-control mb-2"
+              type="number"
+              name="quantity"
+              value="1"
+              min="1"
+              max=tourDetail.stock
+            )
+            button(
+              type="submit"
+              class="btn btn-success btn-block"
+            ) Thêm vào giỏ hàng
+
+
+      .row
+        .col-12
+          .inner-infomation
+            .inner-label Thông tin tour
+            .inner-text
+              | !{tourDetail.information}
+
+        .col-12
+          .inner-infomation
+            .inner-label Lịch trình tour
+            .inner-text
+              | !{tourDetail.schedule}
