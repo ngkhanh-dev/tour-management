@@ -165,7 +165,7 @@ const deleteItemInCart = () => {
 };
 // End Delete Tour In Cart
 
-// Cập nhật số lượng trong giỏ hàng
+// Update Product Quantity In Cart
 const updateQuantityInCart = () => {
     const listInputQuantity = document.querySelectorAll(
         "input[name='quantity']"
@@ -187,10 +187,43 @@ const updateQuantityInCart = () => {
         });
     }
 };
-// Hết Cập nhật số lượng trong giỏ hàng
+// End Update Product Quantity In Cart
 
 // Show DatA In Cart
 drawCart();
 // End Show DatA In Cart
 
 /* End Table Cart */
+
+// Book Tour
+const formOrder = document.querySelector("[form-order]");
+if (formOrder) {
+    formOrder.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const fullName = formOrder.fullName.value;
+        const phone = formOrder.phone.value;
+        const note = formOrder.note.value;
+
+        const cart = JSON.parse(localStorage.getItem("cart"));
+
+        const data = {
+            info: {
+                fullName: fullName,
+                phone: phone,
+                note: note,
+            },
+            cart: cart,
+        };
+        fetch("/order", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        })
+            .then((res) => res.json())
+            .then((data) => console.log(data));
+    });
+}
+// Book Tour
